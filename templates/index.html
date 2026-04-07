@@ -1,55 +1,60 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Sistema de monitorización de oportunidades inmobiliarias</title>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
     <div class="container">
         <h1>Monitor de oportunidades inmobiliarias en Zaragoza</h1>
 
-<p>
-Sistema que detecta automáticamente nuevos anuncios inmobiliarios según criterios definidos (precio, zona, etc.) y permite actuar antes que la competencia.
-</p>
-<p>
-Ejemplo: detectar pisos por debajo de 120.000€ en zonas como Delicias o Centro en cuanto aparecen publicados.
-</p>
-<p>
-Cada minuto que pasa pueden aparecer nuevas oportunidades que otros detectan antes.
-</p>
+        <p>
+            Sistema que detecta automáticamente nuevos anuncios inmobiliarios según criterios definidos (precio, zona,
+            etc.) y permite actuar antes que la competencia.
+        </p>
+        <p>
+            Ejemplo: detectar pisos por debajo de 120.000€ en zonas como Delicias o Centro en cuanto aparecen
+            publicados.
+        </p>
+        <p>
+            Cada minuto que pasa pueden aparecer nuevas oportunidades que otros detectan antes.
+        </p>
 
         <div class="actions">
             <a class="btn" href="{{ url_for('actualizar') }}">Buscar nuevas oportunidades</a>
         </div>
         <p>
-✔ Configuración rápida<br>
-✔ Adaptado a cada agencia<br>
-✔ Soporte y ajustes incluidos
-</p>
-<p><strong>Actualización:</strong> automática (configurable según necesidades)</p>        <ul>
-    <li>✔ Detección automática de nuevos anuncios</li>
-    <li>✔ Filtro por precio y zona</li>
-    <li>✔ Ahorro de tiempo en búsquedas manuales</li>
-    <li>✔ Posibilidad de alertas en tiempo real</li>
-</ul>
-<p>
-<strong>¿Te gustaría tener este sistema adaptado a tu negocio?</strong><br>
-Puedo configurarlo según tus necesidades.
-</p>
-<p>
-Sistema adaptable a diferentes portales inmobiliarios y criterios personalizados.
-</p>
+            ✔ Configuración rápida<br>
+            ✔ Adaptado a cada agencia<br>
+            ✔ Soporte y ajustes incluidos
+        </p>
+        <p><strong>Actualización:</strong> automática (configurable según necesidades)</p>
+        <ul>
+            <li>✔ Detección automática de nuevos anuncios</li>
+            <li>✔ Filtro por precio y zona</li>
+            <li>✔ Ahorro de tiempo en búsquedas manuales</li>
+            <li>✔ Posibilidad de alertas en tiempo real</li>
+        </ul>
+        <p>
+            <strong>¿Te gustaría tener este sistema adaptado a tu negocio?</strong><br>
+            Puedo configurarlo según tus necesidades.
+        </p>
+        <p>
+            Sistema adaptable a diferentes portales inmobiliarios y criterios personalizados.
+        </p>
 
         {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                {% for category, message in messages %}
-                    <div class="alert alert-{{ category }}">
-                        {{ message }}
-                    </div>
-                {% endfor %}
-            {% endif %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
         {% endwith %}
 
         {% if pisos %}
@@ -80,4 +85,5 @@ Sistema adaptable a diferentes portales inmobiliarios y criterios personalizados
         {% endif %}
     </div>
 </body>
+
 </html>
