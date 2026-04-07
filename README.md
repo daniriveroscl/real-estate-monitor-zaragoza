@@ -1,14 +1,14 @@
 # Monitor de oportunidades inmobiliarias en Zaragoza
 
-Sistema que detecta automáticamente nuevos anuncios inmobiliarios según criterios definidos (precio, zona, etc.) y permite actuar antes que la competencia.
+Sistema que detecta automáticamente nuevos anuncios inmobiliarios según criterios definidos, como precio y zona, y permite actuar antes que la competencia.
 
 ## Funcionalidades
 - Detección automática de nuevos anuncios
 - Filtro por precio y zona
 - Visualización en panel web
 - Detección de nuevas oportunidades
-- Base de datos local con SQLite
-- Sistema adaptable a diferentes portales
+- Mensajes de actualización
+- Sistema adaptable a diferentes portales inmobiliarios
 
 ## Tecnologías
 - Python
@@ -16,6 +16,9 @@ Sistema que detecta automáticamente nuevos anuncios inmobiliarios según criter
 - SQLite
 - BeautifulSoup
 - HTML/CSS
+
+## Capturas
+Ver carpeta `screenshots`.
 
 ## Objetivo
 Demostrar una solución de automatización orientada a negocio para agencias inmobiliarias.
