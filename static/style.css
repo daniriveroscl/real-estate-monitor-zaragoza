@@ -65,7 +65,8 @@ table {
     background: white;
 }
 
-th, td {
+th,
+td {
     border: 1px solid #e5e7eb;
     padding: 12px;
     text-align: left;
@@ -74,4 +75,10 @@ th, td {
 
 th {
     background: #f9fafb;
+}
+
+.meta {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 16px;
 }

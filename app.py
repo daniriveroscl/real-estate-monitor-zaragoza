@@ -1,7 +1,14 @@
 from flask import Flask, render_template, redirect, url_for, flash
-from database import init_db, obtener_pisos
+from database import (
+    init_db,
+    init_config_table,
+    obtener_pisos,
+    guardar_ultima_actualizacion,
+    obtener_ultima_actualizacion,
+)
 from scraper import ejecutar_scraping
 from notifier import enviar_email
+from datetime import datetime
 
 app = Flask(__name__)
 app.secret_key = "clave_secreta_para_desarrollo"
@@ -10,7 +17,10 @@ app.secret_key = "clave_secreta_para_desarrollo"
 @app.route("/")
 def index():
     pisos = obtener_pisos()
-    return render_template("index.html", pisos=pisos)
+    ultima_actualizacion = obtener_ultima_actualizacion()
+    return render_template(
+        "index.html", pisos=pisos, ultima_actualizacion=ultima_actualizacion
+    )
 
 
 @app.route("/actualizar")
@@ -20,6 +30,9 @@ def actualizar():
         nuevos_pisos = resultado["nuevos"]
         total_nuevos = resultado["total_nuevos"]
         total_filtrados = resultado["total_filtrados"]
+
+        fecha_hora = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+        guardar_ultima_actualizacion(fecha_hora)
 
         if total_nuevos > 0:
             try:
@@ -46,4 +59,5 @@ def actualizar():
 
 if __name__ == "__main__":
     init_db()
+    init_config_table()
     app.run(debug=True)

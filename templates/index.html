@@ -27,22 +27,35 @@
         <div class="actions">
             <a class="btn" href="{{ url_for('actualizar') }}">Buscar nuevas oportunidades</a>
         </div>
+
+        {% if ultima_actualizacion %}
+        <p class="meta"><strong>Última actualización real:</strong> {{ ultima_actualizacion }}</p>
+        {% else %}
+        <p class="meta"><strong>Última actualización real:</strong> todavía no se ha ejecutado ninguna búsqueda</p>
+        {% endif %}
+
+        <p class="meta"><strong>Última actualización:</strong> {{ ultima_actualizacion }}</p>
+
         <p>
             ✔ Configuración rápida<br>
             ✔ Adaptado a cada agencia<br>
             ✔ Soporte y ajustes incluidos
         </p>
+
         <p><strong>Actualización:</strong> automática (configurable según necesidades)</p>
+
         <ul>
             <li>✔ Detección automática de nuevos anuncios</li>
             <li>✔ Filtro por precio y zona</li>
             <li>✔ Ahorro de tiempo en búsquedas manuales</li>
             <li>✔ Posibilidad de alertas en tiempo real</li>
         </ul>
+
         <p>
             <strong>¿Te gustaría tener este sistema adaptado a tu negocio?</strong><br>
             Puedo configurarlo según tus necesidades.
         </p>
+
         <p>
             Sistema adaptable a diferentes portales inmobiliarios y criterios personalizados.
         </p>
