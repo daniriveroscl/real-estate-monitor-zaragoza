@@ -1,4 +1,4 @@
-# Monitor de oportunidades inmobiliarias en Zaragoza
+# Sistema de detección de oportunidades inmobiliarias por precio, zona y localidad
 
 Sistema que detecta automáticamente nuevos anuncios inmobiliarios según criterios definidos, como precio y zona, y permite actuar antes que la competencia.
 
