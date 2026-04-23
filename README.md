@@ -5,6 +5,7 @@ Sistema que detecta automáticamente nuevos anuncios inmobiliarios según criter
 ## Funcionalidades
 - Detección automática de nuevos anuncios
 - Filtro por precio y zona
+- Configurable para cualquier ciudad 
 - Visualización en panel web
 - Detección de nuevas oportunidades
 - Mensajes de actualización
