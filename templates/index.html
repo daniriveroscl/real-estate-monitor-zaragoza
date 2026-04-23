@@ -28,6 +28,35 @@
             <a class="btn" href="{{ url_for('actualizar') }}">Buscar nuevas oportunidades</a>
         </div>
 
+        <div class="stats">
+            <div class="stat-card">
+                <span class="stat-title">Pisos detectados</span>
+                <span class="stat-value">{{ total_pisos }}</span>
+            </div>
+
+            <div class="stat-card">
+                <span class="stat-title">Oportunidades nuevas</span>
+                <span class="stat-value">
+                    {% if total_nuevos is not none %}
+                    {{ total_nuevos }}
+                    {% else %}
+                    —
+                    {% endif %}
+                </span>
+            </div>
+
+            <div class="stat-card">
+                <span class="stat-title">Última actualización</span>
+                <span class="stat-value">
+                    {% if ultima_actualizacion %}
+                    {{ ultima_actualizacion }}
+                    {% else %}
+                    Sin ejecutar
+                    {% endif %}
+                </span>
+            </div>
+        </div>
+
         {% if ultima_actualizacion %}
         <p class="meta"><strong>Última actualización real:</strong> {{ ultima_actualizacion }}</p>
         {% else %}

@@ -123,3 +123,14 @@ def obtener_ultima_actualizacion():
     if resultado:
         return resultado["valor"]
     return None
+
+
+def contar_pisos():
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT COUNT(*) AS total FROM pisos")
+    resultado = cursor.fetchone()
+
+    conn.close()
+    return resultado["total"]

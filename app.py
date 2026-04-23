@@ -1,10 +1,11 @@
-from flask import Flask, render_template, redirect, url_for, flash
+from flask import Flask, render_template, redirect, url_for, flash, session
 from database import (
     init_db,
     init_config_table,
     obtener_pisos,
     guardar_ultima_actualizacion,
     obtener_ultima_actualizacion,
+    contar_pisos,
 )
 from scraper import ejecutar_scraping
 from notifier import enviar_email
@@ -18,8 +19,15 @@ app.secret_key = "clave_secreta_para_desarrollo"
 def index():
     pisos = obtener_pisos()
     ultima_actualizacion = obtener_ultima_actualizacion()
+    total_pisos = contar_pisos()
+    total_nuevos = session.pop("total_nuevos", None)
+
     return render_template(
-        "index.html", pisos=pisos, ultima_actualizacion=ultima_actualizacion
+        "index.html",
+        pisos=pisos,
+        ultima_actualizacion=ultima_actualizacion,
+        total_pisos=total_pisos,
+        total_nuevos=total_nuevos,
     )
 
 
@@ -30,6 +38,8 @@ def actualizar():
         nuevos_pisos = resultado["nuevos"]
         total_nuevos = resultado["total_nuevos"]
         total_filtrados = resultado["total_filtrados"]
+
+        session["total_nuevos"] = total_nuevos
 
         fecha_hora = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
         guardar_ultima_actualizacion(fecha_hora)
