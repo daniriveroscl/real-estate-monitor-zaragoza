@@ -3,23 +3,27 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Sistema de monitorización de oportunidades inmobiliarias</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitor de oportunidades inmobiliarias</title>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
     <div class="container">
+
         <h1>Monitor de oportunidades inmobiliarias en Zaragoza</h1>
 
         <p>
-            Sistema que detecta automáticamente nuevos anuncios inmobiliarios según criterios definidos (precio, zona,
-            etc.) y permite actuar antes que la competencia.
+            Sistema que detecta automáticamente nuevos anuncios inmobiliarios según criterios definidos
+            (precio, zona, etc.) y permite actuar antes que la competencia.
         </p>
+
         <p>
-            Ejemplo: detectar pisos por debajo de 120.000€ en zonas como Delicias o Centro en cuanto aparecen
-            publicados.
+            Ejemplo: detectar pisos por debajo de 120.000€ en zonas como Delicias o Centro
+            en cuanto aparecen publicados.
         </p>
+
         <p>
             Cada minuto que pasa pueden aparecer nuevas oportunidades que otros detectan antes.
         </p>
@@ -56,14 +60,6 @@
                 </span>
             </div>
         </div>
-
-        {% if ultima_actualizacion %}
-        <p class="meta"><strong>Última actualización real:</strong> {{ ultima_actualizacion }}</p>
-        {% else %}
-        <p class="meta"><strong>Última actualización real:</strong> todavía no se ha ejecutado ninguna búsqueda</p>
-        {% endif %}
-
-        <p class="meta"><strong>Última actualización:</strong> {{ ultima_actualizacion }}</p>
 
         <p>
             ✔ Configuración rápida<br>
@@ -112,11 +108,21 @@
             </thead>
             <tbody>
                 {% for piso in pisos %}
-                <tr>
-                    <td>{{ piso["titulo"] }}</td>
+                <tr class="{% if loop.index <= (total_nuevos or 0) %}nuevo-piso{% endif %}">
+                    <td>
+                        {{ piso["titulo"] }}
+
+                        {% if loop.index <= (total_nuevos or 0) %} <span class="badge-nuevo">NUEVO</span>
+                            {% endif %}
+                    </td>
+
                     <td>{{ piso["precio"] }}</td>
                     <td>{{ piso["zona"] }}</td>
-                    <td><a href="{{ piso['enlace'] }}" target="_blank">Ver anuncio</a></td>
+                    <td>
+                        <a href="{{ piso['enlace'] }}" target="_blank">
+                            Ver anuncio
+                        </a>
+                    </td>
                     <td>{{ piso["fecha_detectado"] }}</td>
                 </tr>
                 {% endfor %}
@@ -125,6 +131,7 @@
         {% else %}
         <p>No hay pisos guardados todavía.</p>
         {% endif %}
+
     </div>
 </body>
 
