@@ -12,29 +12,46 @@
 <body>
     <div class="container">
 
-        <h1>Monitor de oportunidades inmobiliarias</h1>
+        <div class="hero-text">
 
-        <p>
-            Sistema que detecta automáticamente nuevos anuncios inmobiliarios según criterios definidos
-            (precio, zona, etc.) y permite actuar antes que la competencia.
-        </p>
+            <h1>Monitor de oportunidades inmobiliarias</h1>
 
-        <p>
-            Ejemplo: detectar pisos por debajo de 120.000€ en zonas como Delicias o Centro
-            en cuanto aparecen publicados.
-        </p>
+            <p>
+                Plataforma automática para detectar oportunidades inmobiliarias antes que la competencia.
+            </p>
 
-        <p>
-            Detecta oportunidades antes que otras agencias y reduce el tiempo de búsqueda manual.
-        </p>
+            <p>
+                Ejemplo: detectar pisos por debajo de un precio definido en zonas concretas
+                en cuanto aparecen publicados.
+            </p>
+
+            <p>
+                Detecta oportunidades antes que otras agencias y reduce el tiempo de búsqueda manual.
+            </p>
+
+        </div>
 
         <div class="actions">
             <a class="btn" href="{{ url_for('actualizar') }}">Buscar oportunidades ahora</a>
+            <p class="status-line">
+                Sistema activo monitorizando anuncios automáticamente.
+            </p>
+        </div>
+
+        <div class="config-summary">
+            <strong>Configuración activa:</strong>
+
+            <div class="filter-tags">
+                <span>Ciudad: {{ ciudad }}</span>
+                <span>Zona/s: {{ zonas | join(', ') }}</span>
+                <span>Precio máximo: {{ "{:,}".format(precio_maximo).replace(",", ".") }}€</span>
+                <span>Tipo: vivienda</span>
+            </div>
         </div>
 
         <div class="stats">
             <div class="stat-card">
-                <span class="stat-title">Pisos detectados</span>
+                <span class="stat-title">Anuncios monitorizados</span>
                 <span class="stat-value">{{ total_pisos }}</span>
             </div>
 
@@ -55,7 +72,7 @@
                     {% if ultima_actualizacion %}
                     {{ ultima_actualizacion }}
                     {% else %}
-                    Sin ejecutar
+                    Esperando primera búsqueda
                     {% endif %}
                 </span>
             </div>
@@ -138,7 +155,7 @@
             </tbody>
         </table>
         {% else %}
-        <p>No hay pisos guardados todavía.</p>
+        <p>Todavía no se han detectado anuncios con los filtros configurados.</p>
         {% endif %}
 
     </div>

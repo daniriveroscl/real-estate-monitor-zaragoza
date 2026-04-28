@@ -20,6 +20,10 @@ h1 {
     margin-bottom: 20px;
 }
 
+.hero-text {
+    margin-bottom: 28px;
+}
+
 .actions {
     margin-bottom: 20px;
 }
@@ -143,4 +147,29 @@ th {
     padding: 4px 10px;
     border-radius: 999px;
     font-size: 12px;
+}
+
+.config-summary {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    padding: 12px 14px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #374151;
+}
+
+.filter-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.filter-tags span {
+    background: #eef2ff;
+    color: #3730a3;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 13px;
 }

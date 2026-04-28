@@ -1,4 +1,5 @@
 import sqlite3
+from datetime import datetime
 
 DB_NAME = "pisos.db"
 
@@ -21,7 +22,7 @@ def init_db():
             precio TEXT,
             zona TEXT,
             enlace TEXT UNIQUE,
-            fecha_detectado TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            fecha_detectado TEXT
         )
     """
     )
@@ -45,12 +46,14 @@ def guardar_piso(titulo, precio, zona, enlace):
     conn = get_connection()
     cursor = conn.cursor()
 
+    fecha_detectado = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
     cursor.execute(
         """
-        INSERT INTO pisos (titulo, precio, zona, enlace)
-        VALUES (?, ?, ?, ?)
+        INSERT INTO pisos (titulo, precio, zona, enlace, fecha_detectado)
+        VALUES (?, ?, ?, ?, ?)
     """,
-        (titulo, precio, zona, enlace),
+        (titulo, precio, zona, enlace, fecha_detectado),
     )
 
     conn.commit()

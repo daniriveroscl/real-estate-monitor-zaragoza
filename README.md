@@ -11,15 +11,23 @@ Sistema que detecta automáticamente nuevos anuncios inmobiliarios según criter
 - Mensajes de actualización
 - Sistema adaptable a diferentes portales inmobiliarios
 
+## Capturas
+
+### Panel principal
+![Panel principal](screenshots/Captura1.png)
+
+### Nuevas oportunidades detectadas
+![Nuevas oportunidades](screenshots/Captura2.png)
+
+### Historial de anuncios monitorizados
+![Historial](screenshots/Captura3.png)
+
 ## Tecnologías
 - Python
 - Flask
 - SQLite
 - BeautifulSoup
 - HTML/CSS
-
-## Capturas
-Ver carpeta `screenshots`.
 
 ## Objetivo
 Demostrar una solución de automatización orientada a negocio para agencias inmobiliarias.

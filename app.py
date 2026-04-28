@@ -10,6 +10,7 @@ from database import (
 from scraper import ejecutar_scraping
 from notifier import enviar_email
 from datetime import datetime
+from config import CIUDAD, ZONAS_PERMITIDAS, PRECIO_MAXIMO
 
 app = Flask(__name__)
 app.secret_key = "clave_secreta_para_desarrollo"
@@ -28,6 +29,9 @@ def index():
         ultima_actualizacion=ultima_actualizacion,
         total_pisos=total_pisos,
         total_nuevos=total_nuevos,
+        ciudad=CIUDAD,
+        zonas=ZONAS_PERMITIDAS,
+        precio_maximo=PRECIO_MAXIMO,
     )
 
 
@@ -51,12 +55,13 @@ def actualizar():
                 print(f"Error enviando email: {email_error}")
 
             flash(
-                f"Actualización completada. Se han añadido {total_nuevos} pisos nuevos de {total_filtrados} anuncios filtrados.",
+                f"Se han detectado {total_nuevos} nuevas oportunidades inmobiliarias listas para revisar.",
                 "success",
             )
+
         else:
             flash(
-                f"Actualización completada. No se han encontrado pisos nuevos. Anuncios válidos filtrados: {total_filtrados}.",
+                f"No se han detectado nuevas oportunidades. {total_filtrados} anuncios revisados.",
                 "info",
             )
 
