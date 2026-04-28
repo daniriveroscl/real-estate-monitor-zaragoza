@@ -127,3 +127,20 @@ th {
     background: #d1fae5;
     border-radius: 999px;
 }
+
+.estado-nuevo {
+    background-color: #dcfce7;
+    color: #166534;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.estado-detectado {
+    background-color: #e5e7eb;
+    color: #374151;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+}

@@ -25,11 +25,11 @@
         </p>
 
         <p>
-            Cada minuto que pasa pueden aparecer nuevas oportunidades que otros detectan antes.
+            Detecta oportunidades antes que otras agencias y reduce el tiempo de búsqueda manual.
         </p>
 
         <div class="actions">
-            <a class="btn" href="{{ url_for('actualizar') }}">Buscar nuevas oportunidades</a>
+            <a class="btn" href="{{ url_for('actualizar') }}">Buscar oportunidades ahora</a>
         </div>
 
         <div class="stats">
@@ -102,6 +102,7 @@
                     <th>Título</th>
                     <th>Precio</th>
                     <th>Zona</th>
+                    <th>Estado</th>
                     <th>Enlace</th>
                     <th>Fecha detectado</th>
                 </tr>
@@ -118,6 +119,14 @@
 
                     <td>{{ piso["precio"] }}</td>
                     <td>{{ piso["zona"] }}</td>
+
+                    <td>
+                        {% if loop.index <= (total_nuevos or 0) %} <span class="estado-nuevo">Nuevo</span>
+                            {% else %}
+                            <span class="estado-detectado">Detectado</span>
+                            {% endif %}
+                    </td>
+
                     <td>
                         <a href="{{ piso['enlace'] }}" target="_blank">
                             Ver anuncio
