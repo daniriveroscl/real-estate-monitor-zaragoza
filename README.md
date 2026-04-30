@@ -1,4 +1,4 @@
-# Sistema de detección de oportunidades inmobiliarias por precio, zona y localidad
+# Monitor de oportunidades inmobiliarias configurable por ciudad
 
 Sistema que detecta automáticamente nuevos anuncios inmobiliarios según criterios definidos, como precio y zona, y permite actuar antes que la competencia.
 
@@ -13,14 +13,14 @@ Sistema que detecta automáticamente nuevos anuncios inmobiliarios según criter
 
 ## Capturas
 
-### Panel principal
-![Panel principal](screenshots/Captura1.png)
+### Panel inicial
+![Panel inicial](screenshots/Captura1.png)
 
-### Nuevas oportunidades detectadas
-![Nuevas oportunidades](screenshots/Captura2.png)
+### Oportunidades detectadas
+![Oportunidades detectadas](screenshots/Captura2.png)
 
-### Historial de anuncios monitorizados
-![Historial](screenshots/Captura3.png)
+### Nuevas oportunidades
+![Nuevas oportunidades](screenshots/Captura3.png)
 
 ## Tecnologías
 - Python
