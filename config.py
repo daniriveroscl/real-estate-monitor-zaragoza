@@ -1,10 +1,10 @@
 MODO_PRUEBA = True
 
-CIUDAD = "Madrid"
-ZONAS_PERMITIDAS = ["Centro", "Salamanca", "Chamberí", "Retiro"]
-PRECIO_MAXIMO = 350000
+CIUDAD = "Zaragoza"
+ZONAS_PERMITIDAS = ["Centro", "Actur", "Delicias", "San José"]
+PRECIO_MAXIMO = 250000
 
-URL_OBJETIVO = "https://ejemplo.com/pisos-madrid"
+URL_OBJETIVO = "https://www.idealista.com/venta-viviendas/zaragoza-zaragoza/"
 
 # Email
 EMAIL_ORIGEN = "tu_correo@gmail.com"
