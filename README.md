@@ -1,15 +1,28 @@
-# Monitor de oportunidades inmobiliarias configurable por ciudad
+# Real Estate Monitor Zaragoza
 
-Sistema que detecta automáticamente nuevos anuncios inmobiliarios según criterios definidos, como precio y zona, y permite actuar antes que la competencia.
+Aplicación web desarrollada en Python y Flask para detectar oportunidades inmobiliarias en Zaragoza según criterios de precio y zona.
+
+El objetivo del proyecto es automatizar la búsqueda de anuncios relevantes, almacenarlos en una base de datos y visualizarlos desde un panel web sencillo.
 
 ## Funcionalidades
-- Detección automática de nuevos anuncios
-- Filtro por precio y zona
-- Configurable para cualquier ciudad 
-- Visualización en panel web
-- Detección de nuevas oportunidades
-- Mensajes de actualización
-- Sistema adaptable a diferentes portales inmobiliarios
+
+- Detección de anuncios inmobiliarios.
+- Filtrado por precio y zona.
+- Almacenamiento en SQLite.
+- Panel web para consultar oportunidades.
+- Sistema preparado para adaptarse a distintos portales.
+- Estructura modular con separación entre scraping, base de datos, configuración y notificaciones.
+
+## Tecnologías utilizadas
+
+- Python
+- Flask
+- SQLite
+- BeautifulSoup
+- Requests
+- HTML
+- CSS
+- Git
 
 ## Capturas
 
@@ -22,12 +35,21 @@ Sistema que detecta automáticamente nuevos anuncios inmobiliarios según criter
 ### Nuevas oportunidades
 ![Nuevas oportunidades](screenshots/Captura3.png)
 
-## Tecnologías
-- Python
-- Flask
-- SQLite
-- BeautifulSoup
-- HTML/CSS
+## Estructura del proyecto
 
-## Objetivo
-Demostrar una solución de automatización orientada a negocio para agencias inmobiliarias.
+```text
+real-estate-monitor-zaragoza/
+├── app.py
+├── scraper.py
+├── database.py
+├── notifier.py
+├── config.py
+├── requirements.txt
+├── templates/
+├── static/
+└── screenshots/
+
+
+
+
+
